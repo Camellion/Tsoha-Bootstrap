@@ -1,14 +1,16 @@
-Johdanto
+JOHDANTO
 
 Elokuva-arkisto on tietokanta, jossa on nimensä mukaisesti elokuvia. Arkistossa on elokuvien eri tietoja kuten nimi, kesto, julkaisuvuosi, kategoria, ohjaaja, näyttelijät, kieli ja ikäraja. Elokuvia voi hakea hakusanoilla. Elokuvat voi listata aakkosjärjestyksessä selausta varten.
 
 Arkisto toimii www-sivuilla. Järjestelmään rekisteröidytään ja kirjaudutaan sisään. Elokuvia voi lisätä, poistaa tai muokata. Ohjelmontikielenä on PHP ja tietokantapalvelimena toimii PostgresSQL. Tietokanta toimii laitoksen users-palvelimella.
 
-Toimintoja:
 
-    KÄyttäjän tilin luonti ja kirjautuminen
-    Elokuvan haku
-    Elokuvien selailu
-    Elokuvan lisäys, poisto ja muokkaus
-    Käyttäjätunnuksen luominen
-    Käyttäjän salasanan muutos ja tilin poisto
+KÄYTTÖTAPAUKSET
+    
+    Rekisteröityminen
+    Sisään/uloskirjautuminen
+    Elokuvan haku hakusanalla
+    Elokuvien listaus aakkosjärjestyksessä
+    Elokuvan lisäys, muokkaus ja poisto
+    Käyttäjätietojen muokkaus ja poisto
+    
