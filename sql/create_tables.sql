@@ -1,7 +1,7 @@
 create table kayttaja(
 	id serial primary key,
-	tunnus varchar(30) unique not null,
-	salasana varchar(30) not null
+	tunnus varchar(32) unique not null,
+	salasana varchar(32) not null
 );
 
 create table elokuva(
