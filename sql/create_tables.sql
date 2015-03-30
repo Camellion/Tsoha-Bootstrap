@@ -9,7 +9,7 @@ create table elokuva(
 	nimi varchar(100) not null,
 	vuosi integer,
 	kesto integer,
-	ikaraja varchar(3),
+	ikaraja integer,
 	kieli varchar(50),
 	kayttaja integer,
 	foreign key(kayttaja) references kayttaja ON DELETE CASCADE
