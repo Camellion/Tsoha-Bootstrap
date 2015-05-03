@@ -3,6 +3,9 @@
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://jorilind.users.cs.helsinki.fi/tsoha/)
+* Tietokannan testitunnukset: 
+tunnus: test 
+salasana: 1234
 * [Linkki dokumentaatiooni](https://github.com/Camellion/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 
  

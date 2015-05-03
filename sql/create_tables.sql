@@ -1,11 +1,11 @@
 create table kayttaja(
-	id serial primary key,
+	idtunnus serial primary key,
 	tunnus varchar(32) unique not null,
 	salasana varchar(32) not null
 );
 
 create table elokuva(
-	id serial primary key,
+	idtunnus serial primary key,
 	nimi varchar(100) not null,
 	vuosi integer,
 	kesto integer,
@@ -16,7 +16,7 @@ create table elokuva(
 );
 
 create table henkilo(
-	id serial primary key,
+	idtunnus serial primary key,
 	nimi varchar(50)
 );
 
@@ -35,7 +35,7 @@ create table roolityo(
 );
 
 create table kategoria(
-	id serial primary key,
+	idtunnus serial primary key,
 	nimi varchar(30)
 );
 
