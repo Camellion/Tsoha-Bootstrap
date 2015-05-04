@@ -98,7 +98,7 @@
       </div>
       <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-          <button type="submit" class="btn btn-default">Tallenna</button>
+          <button type="submit" class="btn btn-success">Tallenna</button>
         </div>
       </div>
       </form>

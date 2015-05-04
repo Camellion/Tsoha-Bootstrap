@@ -1,4 +1,6 @@
 <?php
+//ini_set('display_errors', 1);
+
 	require_once "libs/models/kayttaja.php";
 	require_once "libs/common.php";
 	require_once "libs/models/elokuva.php";
@@ -16,7 +18,6 @@
 	$elokuva->setVuosi($_POST['vuosi']);
 	$elokuva->setIkaraja($_POST['ikaraja']);
 	$elokuva->setKieli($_POST['kieli']);
-	$elokuva->setNahty($_POST['nahty']);
 	$elokuva->asetaNayttelijat($_POST['nayttelija1'], $_POST['nayttelija2'], $_POST['nayttelija3']);
 	$elokuva->asetaOhjaajat($_POST['ohjaaja1'], $_POST['ohjaaja2'], $_POST['ohjaaja3']);
 	$elokuva->asetaKategoriat($_POST['kategoria1'], $_POST['kategoria2'], $_POST['kategoria3']);

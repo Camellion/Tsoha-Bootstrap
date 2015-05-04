@@ -24,16 +24,16 @@
           <input type="password" class="form-control" name="uusiS2" placeholder="Uusi salasana">
         </div>
       </div>
-            <div class="form-group">
+      <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-          <button type="submit" class="btn btn-default">Tallenna</button>
+          <button type="submit" class="btn btn-success">Tallenna</button>
         </div>
       </div>
     </form>
     <form class="form-horizontal" role="form" action="poista_kayttaja.php" method="POST">
       <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-          <button type="submit" class="btn btn-default">Poista käyttäjä</button>
+          <button type="submit" class="btn btn-danger">Poista käyttäjä</button>
         </div>
       </div>
     </form>

@@ -1,5 +1,6 @@
-
 <?php
+//ini_set('display_errors', 1);
+
 require_once "libs/yhteys.php"; 
 require_once "libs/models/kayttaja.php";
 

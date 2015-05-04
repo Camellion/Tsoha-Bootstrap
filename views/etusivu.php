@@ -1,11 +1,14 @@
 <div class="container">
 	<h1>Elokuva-arkisto</h1>
-	<p>Hei <?php echo htmlspecialchars($_SESSION['kayttaja']->getTunnus()); ?>! </p>
-	<p>Sinulla on <?php echo htmlspecialchars($data->maara); ?> elokuvaa tallennettuna tietokantaasi.</p>
-	<p><a href="lisaa_elokuva.php">Lisää uusi elokuva</a></p>
+	<p>Käyttäjän <b><?php echo htmlspecialchars($_SESSION['kayttaja']->getTunnus()); ?></b> tietokannassa on tallennettuna yhteensä <b><?php echo htmlspecialchars($data->maara); ?></b> elokuvaa.</p>
 	
-	<form action="aakkosjarj.php"><button type="submit" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-th-list"></span> Listaa aakkosjärjestyksessä</button></form>
-	
+	<table id="pystytila">
+		<tr>
+			<td><form action="aakkosjarj.php"><button type="submit" class="btn btn-primary">Listaa aakkosjärjestyksessä</button></form></td>
+			<td class="vaakatila"></td>
+			<td><a href="lisaa_elokuva.php"><button class="btn btn-success">Lisää uusi elokuva</button></a></td>
+		<tr>
+	<table>
 </div>
 
 <div  class="container">
@@ -20,6 +23,7 @@
     <?php echo $_SESSION['ilmoitus']; ?>
   </div>
 </div>
+
 <?php
   unset($_SESSION['ilmoitus']); 
   endif;
@@ -32,20 +36,21 @@
         <tr>
           <th>Elokuvan nimi</th>
           <th>Julkaisuvuosi</th>
-          <th>Ohjaaja</th>
+          <th>Elokuvan kesto</th>
+          <th>Elokuvan kieli</th>
           <th> </th>
         </tr>
       </thead>
-      <tbody>
-
-	<?php foreach($data->tulos as $rivi=>$tieto):?>
-		<tr>
-			<td> <?php echo htmlspecialchars($tieto['nimi']); ?> </td>
+	  <tbody>
+	    <?php foreach($data->tulos as $rivi=>$tieto):?>
+		  <tr>
+			<td> <?php echo htmlspecialchars($tieto['nimi']); ?></td>
 			<td> <?php echo htmlspecialchars($tieto['vuosi']); ?></td>
-			<td> <?php echo htmlspecialchars($tieto['ohjaaja1']); ?></td>
-			<td><a  class="btn btn-xs btn-default"  href="elokuvan_tiedot.php?id=<?php echo htmlspecialchars($tieto['idtunnus']); ?>"><span class="glyphicon glyphicon-wrench"> Muokkaa/poista</a></td>
-		</tr>
-	<?php endforeach; ?>
+			<td> <?php echo htmlspecialchars($tieto['kesto']); ?> min</td>
+			<td> <?php echo htmlspecialchars($tieto['kieli']); ?></td>
+			<td><a class="btn btn-primary" href="elokuvan_tiedot.php?id=<?php echo htmlspecialchars($tieto['idtunnus']); ?>">Lisätietoja (+muokkaus)</a></td>
+		  </tr>
+	    <?php endforeach; ?>
       </tbody>
     </table>
-  </div>
+</div>

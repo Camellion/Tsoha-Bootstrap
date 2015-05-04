@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1);
+//ini_set('display_errors', 1);
 
 require_once 'libs/models/kayttaja.php';
 require_once 'libs/common.php';
@@ -23,7 +23,7 @@ require_once 'libs/models/elokuva.php';
 	
 	if($kayttaja != null) {
 		$_SESSION['kayttaja'] = $kayttaja;
-		//$data = array();
+		
 		lahetaSivulle("etusivu.php");
 	} else {
 		naytaNakyma("login.php", array(

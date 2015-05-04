@@ -36,7 +36,7 @@ class Elokuva {
 		$this->kesto = $kesto;
 		
 		if(!is_numeric($kesto) && $kesto!=''){
-			$this->virheet['kesto'] = "Kesto pitää antaa numeroina!";
+			$this->virheet['kesto'] = "Kesto pitää antaa numeroina.";
 		} else if(!is_numeric($kesto)){
 			$this->kesto = null;
 			unset($this->virheet['kesto']);
@@ -183,9 +183,9 @@ class Elokuva {
 		return $this->kategoria3;
 	}
 	
-		public function lisaaKantaan(){
+	public function lisaaKantaan(){
 		$sql = "INSERT INTO Elokuva(nimi, kesto, ikaraja, vuosi, kieli, kayttaja) 
-				VALUES(?,?,?,?,?,?,?,?) 
+				VALUES(?,?,?,?,?,?) 
 				RETURNING idtunnus";
 		$kysely = annayhteys() -> prepare($sql);
 		$ok = $kysely-> execute(array($this->getNimi(), $this->getKesto(), $this->getIkaraja(), $this->getVuosi(), $this->getKieli(), $_SESSION['kayttaja']->getKayttajaId()));
@@ -247,7 +247,7 @@ class Elokuva {
 	
 	function hae($nimi, $nayttelija, $ohjaaja, $kategoria){
 		$nimi = "%$nimi%";
-		$sql = "SELECT elokuva.idtunnus, elokuva.nimi, elokuva.vuosi
+		$sql = "SELECT elokuva.idtunnus, elokuva.nimi, elokuva.vuosi, elokuva.kesto, elokuva.kieli
 				FROM elokuva";
 		$joins = '';
 		$wheres = array();
@@ -290,7 +290,7 @@ class Elokuva {
 	}
 
 	function haeAakkosjarjestyksessa(){
-		$sql = "SELECT idtunnus, nimi, vuosi
+		$sql = "SELECT idtunnus, nimi, vuosi, kesto, kieli
 				FROM elokuva WHERE kayttaja = ? ORDER BY nimi ASC";
 		$kysely = annayhteys() -> prepare($sql);
 		$kysely -> execute(array($_SESSION['kayttaja']->getKayttajaId()));
@@ -301,7 +301,7 @@ class Elokuva {
 	
 	function haeKaikki(){
 	//session_start();
-		$sql = "SELECT idtunnus, nimi, vuosi
+		$sql = "SELECT idtunnus, nimi, vuosi, kesto, kieli
 			FROM elokuva WHERE kayttaja = ? ORDER BY elokuva.idtunnus DESC";
 		$kysely = annayhteys() -> prepare($sql);
 		$kysely -> execute(array($_SESSION['kayttaja']->getKayttajaId()));
@@ -483,7 +483,7 @@ class Elokuva {
 	
 	function tallennaMuokattuElokuva($elokuva){
 		$sql = "UPDATE elokuva
-				SET nimi = ?, kesto = ?, ikaraja = ?, vuosi = ?, kieli = ?, maa = ?, nahty = ?
+				SET nimi = ?, kesto = ?, ikaraja = ?, vuosi = ?, kieli = ?
 				WHERE idtunnus = ?";
 		$kysely = annayhteys() -> prepare($sql);
 		$kysely -> execute(array($elokuva->getNimi(), $elokuva->getKesto(), $elokuva->getIkaraja(), $elokuva->getVuosi(), $elokuva->getKieli(), $elokuva->getId()));
